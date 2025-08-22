@@ -13,13 +13,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+
+    "baseUrl": ".",                                  // ✅ importante para alias
+    "forceConsistentCasingInFileNames": true,        // ✅ evita errores por mayúsculas
+
+    "plugins": [{ "name": "next" }],
+
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["components/*"],            // opcional (más claro)
+      "@/app/*": ["app/*"]                           // opcional
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
