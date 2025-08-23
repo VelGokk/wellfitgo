@@ -1,57 +1,67 @@
 import Image from "next/image";
 
-type Media =
+export type Media =
   | { kind: "image"; src: string; alt?: string }
-  | { kind: "youtube"; id?: string; url?: string; alt?: string }
+  | { kind: "youtube"; id?: string; url?: string; alt?: string; poster?: string }
   | { kind: "video"; src: string; poster?: string; alt?: string };
 
+function getYouTubeId(input?: { id?: string; url?: string }) {
+  if (!input) return "";
+  if (input.id) return input.id.trim();
+  const url = input.url?.trim();
+  if (!url) return "";
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("youtu.be")) return u.pathname.replace("/", "");
+    if (u.searchParams.get("v")) return u.searchParams.get("v") || "";
+    const parts = u.pathname.split("/");
+    const idx = parts.findIndex(p => p === "embed");
+    if (idx >= 0 && parts[idx + 1]) return parts[idx + 1];
+  } catch {}
+  return "";
+}
+
 export default function HeroMedia({ media }: { media: Media }) {
-  if (media.kind === "image") {
-    return (
-      <aside className="relative rounded-3xl border border-neutral-200 shadow-lg overflow-hidden">
-        <Image
-          src={media.src}
-          alt={media.alt || "Imagen de portada"}
-          width={1200}
-          height={800}
-          className="h-auto w-full object-cover"
-          priority
-        />
-        <span className="absolute bottom-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold">
-          WellFitGo
-        </span>
-      </aside>
-    );
-  }
+  if (!media) return null;
+
+  const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+    <aside className="relative rounded-3xl overflow-hidden shadow-lg border border-neutral-200">
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        {children}
+      </div>
+    </aside>
+  );
 
   if (media.kind === "youtube") {
-    const videoId =
-      media.id || (media.url ? new URL(media.url).searchParams.get("v") || "" : "");
+    const videoId = getYouTubeId({ id: media.id, url: media.url });
+    if (!videoId) return null;
     return (
-      <aside className="relative rounded-3xl border border-neutral-200 shadow-lg overflow-hidden">
+      <Wrapper>
         <iframe
-          className="w-full aspect-video"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          title={media.alt || "Video de YouTube"}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&controls=1`}
+          title={media.alt || "Video"}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          loading="lazy"
           allowFullScreen
         />
-      </aside>
+      </Wrapper>
     );
   }
 
   if (media.kind === "video") {
     return (
-      <aside className="relative rounded-3xl border border-neutral-200 shadow-lg overflow-hidden">
-        <video
-          src={media.src}
-          poster={media.poster}
-          controls
-          className="w-full rounded-3xl"
-        />
-      </aside>
+      <Wrapper>
+        <video className="absolute inset-0 w-full h-full object-cover"
+               src={media.src} poster={media.poster} controls playsInline preload="metadata" />
+      </Wrapper>
     );
   }
 
-  return null;
+  return (
+    <Wrapper>
+      <Image src={media.src} alt={media.alt || ""} fill className="object-cover" priority />
+    </Wrapper>
+  );
 }

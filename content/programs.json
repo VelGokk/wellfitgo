@@ -1,0 +1,92 @@
+[
+  {
+    "id": "programa-fitball",
+    "title": "Programa Fitball · Fuerza y Equilibrio",
+    "subtitle": "30 días",
+    "days": 30,
+    "image": "https://images.unsplash.com/photo-1584865288642-42078afe6948?q=80&w=1400&auto=format&fit=crop",
+    "category": "Todos",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "programa-fitness-diario",
+    "title": "Programa Fitness · Tu rutina diaria",
+    "subtitle": "7 días",
+    "days": 7,
+    "image": "https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=1400&auto=format&fit=crop",
+    "category": "Todos",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "del-estres-a-la-calma",
+    "title": "Del Estrés a la Calma · Ritual Mindfulness",
+    "subtitle": "5 días",
+    "days": 5,
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1400&auto=format&fit=crop",
+    "category": "MINDFULNESS",
+    "url": "https://www.wellfitgo.com/tus-programas/del-estres-a-la-cama?programId=9e3aa789-9ff6-45a7-8b21-a36dfc406710"
+  },
+  {
+    "id": "reto-pilates",
+    "title": "Reto Pilates · Energiza tu Cuerpo",
+    "subtitle": "7 días",
+    "days": 7,
+    "image": "https://images.unsplash.com/photo-1588286840104-8957b019727f?q=80&w=1400&auto=format&fit=crop",
+    "category": "RETOS",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "power-7-dias",
+    "title": "POWER 7 DÍAS · Abdomen y Cintura",
+    "subtitle": "7 días",
+    "days": 7,
+    "image": "https://images.unsplash.com/photo-1530825894095-9c184b068fcb?q=80&w=1400&auto=format&fit=crop",
+    "category": "RETOS",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "booty-challenge",
+    "title": "Booty Challenge · Glúteos y Piernas",
+    "subtitle": "10 días",
+    "days": 10,
+    "image": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1400&auto=format&fit=crop",
+    "category": "RETOS",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "intensivo-abdomen-plano",
+    "title": "Intensivo Abdomen Plano",
+    "subtitle": "10 días",
+    "days": 10,
+    "image": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=1400&auto=format&fit=crop",
+    "category": "Todos",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "plan-celulitis",
+    "title": "Plan Celulitis · Mejora el aspecto de tu piel",
+    "subtitle": "",
+    "days": 0,
+    "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1400&auto=format&fit=crop",
+    "category": "DESCARGABLES",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "plan-menstruacion",
+    "title": "Plan Menstruación · Entrena según tu ciclo",
+    "subtitle": "",
+    "days": 0,
+    "image": "https://images.unsplash.com/photo-1515378791036-95526d7d6b28?q=80&w=1400&auto=format&fit=crop",
+    "category": "DESCARGABLES",
+    "url": "https://www.wellfitgo.com/"
+  },
+  {
+    "id": "plan-vegetariano",
+    "title": "Plan Vegetariano · Transición amena",
+    "subtitle": "",
+    "days": 0,
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1400&auto=format&fit=crop",
+    "category": "DESCARGABLES",
+    "url": "https://www.wellfitgo.com/"
+  }
+]

@@ -1,74 +1,36 @@
-type Tile = { title: string; href: string; img: string };
-
-const tiles: Tile[] = [
-  {
-    title: "Desafío de 5 días",
-    href: "https://tu-tienda.com/reto-5",
-    img:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Reto 10 días (Maratón)",
-    href: "https://tu-tienda.com/reto-10",
-    img:
-      "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Booty Challenge",
-    href: "https://tu-tienda.com/booty-challenge",
-    img:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
-  },
-];
-
 export default function Tiles() {
-  return (
-    <section id="retos" className="py-16">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="text-center mb-8">
-          <p className="uppercase tracking-widest font-extrabold text-[#F7B5CD]">
-            Desafíos
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-1">
-            Activá el siguiente nivel
-          </h2>
-          <p className="text-neutral-600 max-w-[760px] mx-auto mt-3">
-            Sprints cortos para reforzar constancia. Cada reto deriva a su
-            página/colección.
-          </p>
-        </div>
+  const tiles = [
+    {
+      title: "Desafío de 5 días",
+      img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400&auto=format&fit=crop",
+      href: "/programas"
+    },
+    {
+      title: "Reto 10 días (Maratón)",
+      img: "https://images.unsplash.com/photo-1571019613914-85f342c55f86?q=80&w=1400&auto=format&fit=crop",
+      href: "/programas"
+    },
+    {
+      title: "Booty Challenge",
+      img: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1400&auto=format&fit=crop",
+      href: "/programas"
+    }
+  ];
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {tiles.map((t) => (
-            <article
-              key={t.title}
-              className="relative rounded-2xl overflow-hidden min-h-[260px]"
-            >
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `url('${t.img}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60" />
-              <div className="relative z-10 h-full flex items-end">
-                <div className="p-5 text-white">
-                  <h5 className="text-lg md:text-xl font-extrabold">{t.title}</h5>
-                  <a
-                    href={t.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-block px-4 py-2.5 rounded-full bg-white text-black font-bold hover:bg-neutral-100"
-                  >
-                    ¡Empezar!
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+  return (
+    <section className="mx-auto max-w-[1200px] px-6 py-10">
+      <h3 className="text-2xl md:text-3xl font-extrabold mb-6 text-center" style={{ color:"var(--wf-dark)" }}>
+        Activá el siguiente nivel
+      </h3>
+      <div className="grid md:grid-cols-3 gap-6">
+        {tiles.map(t => (
+          <a key={t.title} href={t.href}
+             className="relative rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+            <img src={t.img} alt={t.title} className="w-full h-56 md:h-64 object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/0"></div>
+            <div className="absolute bottom-3 left-3 text-white font-extrabold">{t.title}</div>
+          </a>
+        ))}
       </div>
     </section>
   );

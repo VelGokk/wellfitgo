@@ -1,0 +1,50 @@
+{
+  "brand": {
+    "name": "WellFitGo",
+    "logo": "/assets/logo.svg",
+    "favicon": "/favicon.ico",
+    "colors": {
+      "primary": "#00BABC",
+      "accent": "#F7B5CD",
+      "cta": "#FFE361",
+      "dark": "#231F20",
+      "bg": "#fbf5f8"
+    }
+  },
+  "links": {
+    "shop": "https://www.wellfitgo.com/",
+    "whatsapp": "https://wa.link/7wp0hh"
+  },
+  "forms": {
+    "endpoint": "https://formspree.io/f/xxxxxxxx",
+    "whatsappFollow": "https://wa.me/5491112345678?text=Hola%20WellFitGo!%20Quiero%20mi%20evaluaci%C3%B3n"
+  },
+  "analytics": {
+    "ga4": "",
+    "clarity": "",
+    "fbPixel": "",
+    "linkedin": "",
+    "gtm": ""
+  },
+  "contact": {
+    "email": "info@wellfitgo.com"
+  },
+  "hero": {
+    "kicker": "Nueva edición",
+    "title": "WellFitGo",
+    "description": "Programas, retos y recursos para transformar tus hábitos. Esta landing es solo la parte visual: desde aquí te derivamos a nuestra tienda, a los descargables y a otras secciones clave. Sin precios, sin fricción.",
+    "media": {
+      "kind": "youtube",
+      "id": "MUaXu3rM7Uk",
+      "poster": "/videos/poster.jpg"
+    },
+    "ctaPrimaryText": "Explorar Programas",
+    "ctaSecondaryText": "Descargables",
+    "ctaTestText": "Probar Programa (Wix)",
+    "ctaTestUrl": "https://www.wellfitgo.com/tus-programas/del-estres-a-la-cama?programId=9e3aa789-9ff6-45a7-8b21-a36dfc406710"
+  },
+  "home": {
+    "featuredPrograms": ["programa-fitball", "power-7-dias", "booty-challenge"],
+    "showTiles": true
+  }
+}

@@ -1,39 +1,29 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#231F20] text-white py-10 mt-12">
-      <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Columna 1: Marca */}
+    <footer className="mt-16 border-t">
+      <div className="mx-auto max-w-[1200px] px-6 py-10 grid gap-6 sm:grid-cols-3">
         <div>
-          <h2 className="text-2xl font-extrabold">WellFitGo</h2>
-          <p className="mt-2 text-sm text-gray-300">
-            Transformando hábitos con programas, retos y recursos para tu bienestar.
+          <div className="font-extrabold text-lg">
+            WellFit<span style={{ color:"var(--wf-primary)" }}>Go</span>
+          </div>
+          <p className="text-sm text-neutral-600 mt-2">
+            Bienestar que se siente, se vive y se transforma.
           </p>
         </div>
-
-        {/* Columna 2: Links */}
-        <div>
-          <h3 className="font-semibold mb-3">Enlaces rápidos</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#programas" className="hover:underline">Programas</a></li>
+        <nav className="text-sm">
+          <div className="font-bold mb-2">Secciones</div>
+          <ul className="space-y-1">
+            <li><a href="/programas" className="hover:underline">Programas</a></li>
             <li><a href="#descargables" className="hover:underline">Descargables</a></li>
-            <li><a href="#tienda" className="hover:underline">Tienda</a></li>
-            <li><a href="#contacto" className="hover:underline">Contacto</a></li>
+            <li><a href="https://www.wellfitgo.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Tienda</a></li>
           </ul>
-        </div>
-
-        {/* Columna 3: Redes sociales */}
-        <div>
-          <h3 className="font-semibold mb-3">Síguenos</h3>
-          <div className="flex gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">🌐 Fb</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">📸 Ig</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">▶️ Yt</a>
-          </div>
+        </nav>
+        <div className="text-sm">
+          <div className="font-bold mb-2">Contacto</div>
+          <p>info@wellfitgo.com</p>
         </div>
       </div>
-
-      {/* Línea inferior */}
-      <div className="border-t border-gray-600 mt-8 pt-4 text-center text-sm text-gray-400">
+      <div className="text-center text-xs text-neutral-500 pb-6">
         © {new Date().getFullYear()} WellFitGo. Todos los derechos reservados.
       </div>
     </footer>

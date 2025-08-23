@@ -1,22 +1,72 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/navbar"; // <= usa la ruta relativa
+
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import CookieConsent from "@/components/cookie-consent";
+import Analytics from "@/lib/analytics";
+import { SITE } from "@/lib/site";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "WellFitGo",
-  description: "Programas, retos y descargables.",
+  title: SITE.brand.name,
+  description: "Programas, retos y recursos para tu bienestar.",
+  icons: { icon: SITE.brand.favicon },
+  openGraph: {
+    title: SITE.brand.name,
+    description: "Bienestar que se siente, se vive y se transforma.",
+    url: "https://tudominio.com/",
+    siteName: "WellFitGo",
+    images: [{ url: "/assets/og.jpg", width: 1200, height: 630 }],
+    locale: "es_AR",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.brand.name,
+    description: "Bienestar…",
+    images: ["/assets/og.jpg"]
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const colors = SITE.brand.colors;
+
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased pt-16`}>
+      <head>
+        {/* Performance / PWA-lite */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={
+          {
+            ["--wf-primary" as any]: colors.primary,
+            ["--wf-accent" as any]: colors.accent,
+            ["--wf-cta" as any]: colors.cta,
+            ["--wf-dark" as any]: colors.dark,
+            ["--wf-bg" as any]: colors.bg
+          } as React.CSSProperties
+        }
+      >
         <Navbar />
-        {children}
+        {/* padding-top para no tapar el contenido con el navbar fijo */}
+        <div className="pt-16" style={{ backgroundColor: "var(--wf-bg)" }}>
+          {children}
+        </div>
+        <Footer />
+
+        {/* Scripts de analítica configurables desde content/site.json */}
+        <Analytics />
+        {/* Banner de cookies simple (consent local) */}
+        <CookieConsent />
       </body>
     </html>
   );
