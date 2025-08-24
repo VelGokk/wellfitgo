@@ -4,7 +4,7 @@ import ProgramCard from "./program-card";
 
 export default function Programs() {
   const featured = featuredOnHome(SITE.home.featuredPrograms);
-  const descargables = PROGRAMS.filter((p) => p.category === "DESCARGABLES");
+  const biblioteca = PROGRAMS.filter((p) => p.category === "BIBLIOTECA");
 
   return (
     <section className="mx-auto max-w-[1200px] px-6 py-16">
@@ -15,11 +15,11 @@ export default function Programs() {
         ))}
       </div>
 
-      <div id="descargables" className="mt-16 rounded-2xl bg-white p-6 shadow-sm">
-        <h4 className="font-extrabold text-lg">Descargables</h4>
+      <div id="biblioteca" className="mt-16 rounded-2xl bg-white p-6 shadow-sm">
+        <h4 className="font-extrabold text-lg">Biblioteca (de recursos)</h4>
         <p className="text-neutral-700 mt-2">Guías, retos y recursos para acompañar tus rutinas.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-          {descargables.map((p) => (
+          {biblioteca.map((p) => (
             <ProgramCard key={p.id} p={p} />
           ))}
         </div>

@@ -28,13 +28,13 @@ const items: Item[] = [
 
 export default function Downloads() {
   return (
-    <section id="descargables" className="py-16 bg-[#f7f7f9]">
+    <section id="biblioteca" className="py-16 bg-[#f7f7f9]">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="text-center mb-8">
           <p className="uppercase tracking-widest font-extrabold text-[#F7B5CD]">
             Recursos
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-1">Descargables</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold mt-1">Biblioteca (de recursos)</h2>
           <p className="text-neutral-600 max-w-[760px] mx-auto mt-3">
             Guías, menús, planificadores y herramientas. Cada tarjeta te lleva
             al recurso correspondiente.

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "autoevaluacion",
+    "nombre": "Autoevaluación de Bienestar",
+    "descripcion": "Test de autoconocimiento para iniciar tu cambio.",
+    "url": "/evaluaciones/autoevaluacion",
+    "activo": true,
+    "preguntas": [
+      "¿Qué te motiva realmente a bajar de peso?",
+      "¿Qué emoción predomina cuando piensas en tu objetivo?",
+      "¿Qué hábito te gustaría transformar primero?",
+      "¿Qué creencia te limita más en tu proceso?",
+      "¿Qué apoyo sientes que necesitas?"
+    ]
+  },
+  {
+    "id": "bienestar",
+    "nombre": "Evaluación de Bienestar",
+    "descripcion": "Evalúa tus hábitos y estilo de vida.",
+    "url": "/evaluaciones/evaluacion de bienestar",
+    "activo": true,
+    "preguntas": [
+      "¿Tomas desayuno todos los días?",
+      "¿Dirías que tu desayuno es nutritivo?",
+      "¿Mantienes un horario regular de las comidas principales?",
+      "¿Consumes en su mayoría comidas balanceadas en lugar de comidas rápidas o congeladas?",
+      "¿Consumes carne (res / pollo / pescado) que no esté frita la mayoría de veces?",
+      "¿Consumes pan integral, arroz integral, pasta integral, etc., en lugar de la pasta común, pan blanco y arroz blanco?",
+      "¿Comes pescado al menos 3 veces a la semana?",
+      "¿Evitas picar (consumir antojos) entre comidas?",
+      "¿Tomas por lo menos 8 vasos de agua al día?",
+      "¿Tomas más agua o bebidas bajas en azúcar que otras bebidas como gaseosas, néctares, bebidas envasadas?",
+      "¿Tienes la energía y la concentración que necesitas para llevar a cabo tus retos diarios?",
+      "¿En tu día a día, te sientes más tranquilo que estresado?",
+      "¿Consumes por lo menos 6 porciones de frutas o verduras al día?",
+      "¿Conoces la importancia del calcio para la salud y la necesidad de consumir diariamente la cantidad adecuada?",
+      "¿Practicas actividad física por lo menos 30 minutos al día, de 3 a 5 días a la semana?",
+      "¿Durante la semana realizas actividades de distracción, además de trabajar o encargarte de tu casa?",
+      "¿Te mantienes en un peso estable y adecuado?",
+      "¿Evitas fumar regularmente?",
+      "¿Moderás el consumo de bebidas alcohólicas?",
+      "¿Dirías que duermes las horas que necesitas?"
+    ]
+  },
+  {
+    "id": "perfil-nutricional",
+    "nombre": "Perfil Nutricional",
+    "descripcion": "Calcula tu IMC y conoce tu perfil nutricional.",
+    "url": "/evaluaciones/perfil nutricional",
+    "activo": true,
+    "preguntas": [
+      "Peso (kg)",
+      "Altura (m)",
+      "Edad",
+      "Sexo"
+    ]
+  },
+  {
+    "id": "escaner-corporal",
+    "nombre": "Escáner Corporal Virtual",
+    "descripcion": "Calcula tu composición corporal y recibe recomendaciones.",
+    "url": "/evaluaciones/escaner corporal",
+    "activo": true,
+    "preguntas": [
+      "Peso (kg)",
+      "Altura (cm)",
+      "Edad",
+      "Sexo",
+      "Cintura (cm)",
+      "Cuello (cm)",
+      "Cadera (cm)",
+      "Actividad física"
+    ]
+  }
+]

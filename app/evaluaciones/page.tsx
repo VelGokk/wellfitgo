@@ -6,25 +6,37 @@ const CARDS = [
     slug: "escaner-corporal-virtual",
     title: "Escáner Corporal Virtual",
     desc: "Estimación inicial de composición corporal y focos de mejora.",
-    img: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=1200&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=1200&auto=format&fit=crop",
+    icon: (
+      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#8e1dd1" d="M12 2a7 7 0 0 1 7 7c0 3.87-3.13 7-7 7s-7-3.13-7-7a7 7 0 0 1 7-7Zm0 16c5.33 0 8 2.67 8 4v2H4v-2c0-1.33 2.67-4 8-4Z"/></svg>
+    )
   },
   {
     slug: "perfil-nutricional",
     title: "Perfil Nutricional",
     desc: "Chequeo rápido de tus hábitos y preferencias alimentarias.",
-    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop",
+    icon: (
+      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#8e1dd1" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"/></svg>
+    )
   },
   {
     slug: "evaluacion-bienestar",
     title: "Evaluación de Bienestar",
     desc: "Sueño, estrés y energía para un plan equilibrado.",
-    img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+    icon: (
+      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#8e1dd1" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5Z"/></svg>
+    )
   },
   {
     slug: "autoevaluacion",
     title: "Autoevaluación",
     desc: "Tu punto de partida y compromisos para 30 días.",
-    img: "https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop"
+    img: "https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop",
+    icon: (
+      <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#8e1dd1" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-7 14H7v-2h5v2Zm5-4H7v-2h10v2Zm0-4H7V7h10v2Z"/></svg>
+    )
   }
 ];
 
@@ -72,23 +84,26 @@ export default function EvaluacionesPage() {
           <Link
             key={c.slug}
             href={`/evaluaciones/${c.slug}`}
-            className="group relative overflow-hidden rounded-3xl border bg-white hover:shadow-xl transition"
+            className="group relative overflow-hidden rounded-3xl border bg-white shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#F7B5CD]/40"
+            tabIndex={0}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.img}
               alt={c.title}
-              className="h-44 w-full object-cover group-hover:scale-[1.02] transition"
+              className="h-44 w-full object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
-            <div className="p-5">
-              <h3 className="font-extrabold text-lg">{c.title}</h3>
-              <p className="text-sm text-neutral-600 mt-1">{c.desc}</p>
+            <div className="p-5 flex flex-col items-center">
+              <div className="mb-2">{c.icon}</div>
+              <h3 className="font-extrabold text-lg text-center group-hover:text-[#8e1dd1] transition-colors">{c.title}</h3>
+              <p className="text-sm text-neutral-600 mt-1 text-center">{c.desc}</p>
               <span
-                className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold"
-                style={{ backgroundColor: "#FFE361", color: "#231F20" }}
+                className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full text-sm font-bold bg-[#FFE361] text-[#231F20] shadow group-hover:bg-[#F7B5CD] group-hover:text-[#8e1dd1] transition-colors"
+                aria-label={`Comenzar ${c.title}`}
               >
-                Comenzar →
+                Comenzar
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="#231F20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
               </span>
             </div>
           </Link>

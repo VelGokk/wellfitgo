@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="font-bold mb-2">Secciones</div>
           <ul className="space-y-1">
             <li><a href="/programas" className="hover:underline">Programas</a></li>
-            <li><a href="#descargables" className="hover:underline">Descargables</a></li>
+            <li><a href="#biblioteca" className="hover:underline">Biblioteca (de recursos)</a></li>
             <li><a href="https://www.wellfitgo.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">Tienda</a></li>
           </ul>
         </nav>

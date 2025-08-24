@@ -32,14 +32,14 @@
   "hero": {
     "kicker": "Nueva edición",
     "title": "WellFitGo",
-    "description": "Programas, retos y recursos para transformar tus hábitos. Esta landing es solo la parte visual: desde aquí te derivamos a nuestra tienda, a los descargables y a otras secciones clave. Sin precios, sin fricción.",
+  "description": "Programas, retos y recursos para transformar tus hábitos. Esta landing es solo la parte visual: desde aquí te derivamos a nuestra tienda, a la biblioteca de recursos y a otras secciones clave. Sin precios, sin fricción.",
     "media": {
       "kind": "youtube",
       "id": "MUaXu3rM7Uk",
       "poster": "/videos/poster.jpg"
     },
     "ctaPrimaryText": "Explorar Programas",
-    "ctaSecondaryText": "Descargables",
+  "ctaSecondaryText": "Biblioteca (de recursos)",
     "ctaTestText": "Probar Programa (Wix)",
     "ctaTestUrl": "https://www.wellfitgo.com/tus-programas/del-estres-a-la-cama?programId=9e3aa789-9ff6-45a7-8b21-a36dfc406710"
   },

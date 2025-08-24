@@ -34,8 +34,8 @@ export default function Navbar() {
           <Link href="/evaluaciones" className="text-sm font-medium hover:opacity-80">
             Evaluaciones
           </Link>
-          <a href="#descargables" className="text-sm font-medium hover:opacity-80">
-            Descargables
+          <a href="#biblioteca" className="text-sm font-medium hover:opacity-80">
+            Biblioteca (de recursos)
           </a>
           <a
             href={SITE.links.shop}
@@ -66,8 +66,8 @@ export default function Navbar() {
             <Link href="/evaluaciones" onClick={() => setOpen(false)} className="py-2">
               Evaluaciones
             </Link>
-            <a href="#descargables" onClick={() => setOpen(false)} className="py-2">
-              Descargables
+            <a href="#biblioteca" onClick={() => setOpen(false)} className="py-2">
+              Biblioteca (de recursos)
             </a>
             <a
               href={SITE.links.shop}

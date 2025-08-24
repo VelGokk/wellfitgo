@@ -12,7 +12,7 @@ export default function Featured() {
              style={{ backgroundColor:"var(--wf-primary)" }}>
             Ver Programas
           </a>
-          <a href="#descargables" className="px-5 py-2 rounded-full text-white font-bold"
+          <a href="#biblioteca" className="px-5 py-2 rounded-full text-white font-bold"
              style={{ backgroundColor:"var(--wf-dark)" }}>
             Ver Retos
           </a>

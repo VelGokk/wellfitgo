@@ -34,8 +34,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const colors = SITE.brand.colors;
-
   return (
     <html lang="es">
       <head>
@@ -46,19 +44,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={
-          {
-            ["--wf-primary" as any]: colors.primary,
-            ["--wf-accent" as any]: colors.accent,
-            ["--wf-cta" as any]: colors.cta,
-            ["--wf-dark" as any]: colors.dark,
-            ["--wf-bg" as any]: colors.bg
-          } as React.CSSProperties
-        }
+        style={{}}
       >
         <Navbar />
         {/* padding-top para no tapar el contenido con el navbar fijo */}
-        <div className="pt-16" style={{ backgroundColor: "var(--wf-bg)" }}>
+        <div className="pt-16" style={{ backgroundColor: "var(--color-background)" }}>
           {children}
         </div>
         <Footer />

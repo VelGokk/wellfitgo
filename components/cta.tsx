@@ -7,7 +7,7 @@ export default function CTA() {
         </h3>
         <p className="text-neutral-600 max-w-[640px] mx-auto mt-3">
           Explora la tienda o guarda esta landing. Los accesos a programas y
-          descargables están a un clic.
+          la biblioteca de recursos está a un clic.
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <a

@@ -29,7 +29,7 @@ export default function Hero() {
               {h.ctaPrimaryText}
             </a>
             <a
-              href="#descargables"
+              href="#biblioteca"
               className="px-6 py-3 rounded-full font-extrabold text-center hover:opacity-90"
               style={{ backgroundColor: "var(--wf-dark)", color: "#fff" }}
             >
