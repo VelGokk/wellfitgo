@@ -35,7 +35,7 @@ export default function Navbar() {
             Evaluaciones
           </Link>
           <Link href="/biblioteca" className="text-sm font-medium hover:opacity-80">
-            Biblioteca y Tienda
+            Biblioteca
           </Link>
         </div>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
               Evaluaciones
             </Link>
             <Link href="/biblioteca" onClick={() => setOpen(false)} className="py-2">
-              Biblioteca y Tienda
+              Biblioteca
             </Link>
           </div>
         </div>
