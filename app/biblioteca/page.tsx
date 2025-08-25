@@ -8,4 +8,3 @@ export default function BibliotecaPage() {
   redirect(SITE.links.shop);
   return null;
 }
-      <a
