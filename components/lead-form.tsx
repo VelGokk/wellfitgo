@@ -1,8 +1,5 @@
-// components/lead-form.tsx
 "use client";
-
 import { useState } from "react";
-import { SITE } from "@/lib/site";
 
 type Field = {
   type: "text" | "textarea" | "number" | "select" | "radio" | "email";
@@ -23,19 +20,9 @@ export default function LeadForm({
   extra?: Field[];
   thankUrl?: string;
 }) {
-  const endpoint = SITE.forms?.endpoint || "";
-  const waAfter = SITE.forms?.whatsappFollow || "";
-
+  const endpoint = "/lead.php";
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
-
-  if (!endpoint) {
-    return (
-      <p className="text-red-600">
-        Configurá el endpoint de Formspree en <code>content/site.json</code> (&quot;forms.endpoint&quot;)
-      </p>
-    );
-  }
 
   const baseFields: Field[] = [
     { type: "text", name: "nombre", label: "Nombre completo", required: true, placeholder: "Ej: María Pérez" },
@@ -47,9 +34,9 @@ export default function LeadForm({
       required: true,
       placeholder: "Ej: +54 9 11 1234-5678",
       pattern: "^[+0-9 ()-]{6,}$"
-    }
+    },
+    { type: "textarea", name: "mensaje", label: "Mensaje", required: false, placeholder: "Dejá tu consulta o comentario (opcional)" }
   ];
-
   const fields = [...baseFields, ...(extra || [])];
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -58,24 +45,25 @@ export default function LeadForm({
     setLoading(true);
 
     const fd = new FormData(e.currentTarget);
-    fd.append("_subject", `Nueva evaluación: ${formName}`);
-    fd.append("form_name", formName);
-    fd.append("page_url", window.location.href);
+    const nombre = fd.get("nombre") || "";
+    const email = fd.get("email") || "";
+    const mensaje = fd.get("mensaje") || "";
+    const origen = formName || "web";
+
+    const phpData = new FormData();
+    phpData.append("nombre", nombre as string);
+    phpData.append("email", email as string);
+    phpData.append("mensaje", mensaje as string);
+    phpData.append("origen", origen);
 
     try {
       const res = await fetch(endpoint, {
         method: "POST",
-        body: fd,
-        headers: { Accept: "application/json" }
+        body: phpData
       });
-      if (!res.ok) throw new Error("No se pudo enviar el formulario");
-      // FB Pixel (opcional)
-      // // @ts-ignore
-      // if (typeof fbq !== "undefined") { fbq("track", "Lead"); }
-
-      const url = new URL(thankUrl, window.location.origin);
-      if (waAfter) url.searchParams.set("whatsapp", waAfter);
-      window.location.href = url.toString();
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || "No se pudo enviar el formulario");
+      window.location.href = thankUrl;
     } catch (er: any) {
       setErr(er.message || "Error desconocido");
     } finally {
@@ -84,14 +72,13 @@ export default function LeadForm({
   }
 
   return (
-  <form onSubmit={onSubmit} className="space-y-4 card p-6">
+    <form onSubmit={onSubmit} className="space-y-4 card p-6">
       {fields.map((f) => (
         <div key={f.name}>
           <label className="block text-sm font-semibold mb-1 text-[var(--color-primary)]">
             {f.label}
             {f.required && " *"}
           </label>
-
           {f.type === "textarea" ? (
             <textarea
               name={f.name}
@@ -103,9 +90,7 @@ export default function LeadForm({
             <select name={f.name} required={f.required} className="w-full rounded-xl border border-[var(--gray-300)] p-3 focus:ring-2 focus:ring-[var(--color-secondary)]">
               <option value="">Seleccioná…</option>
               {f.options?.map((op) => (
-                <option key={op} value={op}>
-                  {op}
-                </option>
+                <option key={op} value={op}>{op}</option>
               ))}
             </select>
           ) : f.type === "radio" ? (
@@ -129,16 +114,13 @@ export default function LeadForm({
           )}
         </div>
       ))}
-
       {err && <p className="text-red-600 text-sm">{err}</p>}
-
       <button
         disabled={loading}
         className="button px-6 py-3 font-extrabold"
       >
         {loading ? "Enviando…" : "Enviar"}
       </button>
-
       <p className="text-xs text-neutral-500">
         Al enviar aceptás ser contactad@ para recibir tu evaluación.
       </p>
