@@ -28,24 +28,15 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/programas" className="text-sm font-medium hover:opacity-80">
+          <Link href="/programas-info" className="text-sm font-medium hover:opacity-80">
             Programas
           </Link>
           <Link href="/evaluaciones" className="text-sm font-medium hover:opacity-80">
             Evaluaciones
           </Link>
-          <a href="#biblioteca" className="text-sm font-medium hover:opacity-80">
-            Biblioteca (de recursos)
-          </a>
-          <a
-            href={SITE.links.shop}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full font-extrabold hover:brightness-95 transition"
-            style={{ backgroundColor: "var(--wf-cta)", color: "var(--wf-dark)" }}
-          >
-            Ir a la Tienda
-          </a>
+          <Link href="/biblioteca" className="text-sm font-medium hover:opacity-80">
+            Biblioteca y Tienda
+          </Link>
         </div>
 
         <button
@@ -60,25 +51,15 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-t bg-white/95 backdrop-blur">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-3 flex flex-col gap-3">
-            <Link href="/programas" onClick={() => setOpen(false)} className="py-2">
+            <Link href="/programas-info" onClick={() => setOpen(false)} className="py-2">
               Programas
             </Link>
             <Link href="/evaluaciones" onClick={() => setOpen(false)} className="py-2">
               Evaluaciones
             </Link>
-            <a href="#biblioteca" onClick={() => setOpen(false)} className="py-2">
-              Biblioteca (de recursos)
-            </a>
-            <a
-              href={SITE.links.shop}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="px-4 py-2 rounded-full font-extrabold text-center"
-              style={{ backgroundColor: "var(--wf-cta)", color: "var(--wf-dark)" }}
-            >
-              Ir a la Tienda
-            </a>
+            <Link href="/biblioteca" onClick={() => setOpen(false)} className="py-2">
+              Biblioteca y Tienda
+            </Link>
           </div>
         </div>
       )}
