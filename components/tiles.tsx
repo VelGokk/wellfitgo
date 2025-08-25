@@ -19,16 +19,16 @@ export default function Tiles() {
 
   return (
     <section className="mx-auto max-w-[1200px] px-6 py-10">
-      <h3 className="text-2xl md:text-3xl font-extrabold mb-6 text-center" style={{ color:"var(--wf-dark)" }}>
+      <h3 className="text-2xl md:text-3xl font-extrabold mb-6 text-center text-[var(--color-primary)]">
         Activá el siguiente nivel
       </h3>
       <div className="grid md:grid-cols-3 gap-6">
         {tiles.map(t => (
           <a key={t.title} href={t.href}
-             className="relative rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+             className="relative card overflow-hidden transition hover:shadow-xl">
             <img src={t.img} alt={t.title} className="w-full h-56 md:h-64 object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/0"></div>
-            <div className="absolute bottom-3 left-3 text-white font-extrabold">{t.title}</div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/0"></div>
+            <div className="absolute bottom-3 left-3 text-white font-extrabold text-lg drop-shadow-lg">{t.title}</div>
           </a>
         ))}
       </div>

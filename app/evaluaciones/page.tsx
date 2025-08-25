@@ -50,7 +50,7 @@ export default function EvaluacionesPage() {
   return (
     <main className="mx-auto max-w-[1200px] px-6 py-12">
       {/* BANNER CTA */}
-      <div className="mb-8 p-4 rounded-2xl bg-[#F7B5CD]/20 border border-[#F7B5CD] text-center">
+  <div className="mb-8 p-4 rounded-2xl bg-[var(--pink)]/20 border border-[var(--pink)] text-center">
         <p className="font-bold text-lg mb-2">
           ¿Tenés dudas sobre qué evaluación elegir?
         </p>
@@ -58,28 +58,28 @@ export default function EvaluacionesPage() {
           href="https://wa.me/5491112345678?text=Hola%20WellFitGo!%20Quiero%20consultar%20sobre%20las%20evaluaciones."
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-6 py-3 rounded-full font-extrabold text-[#231F20] bg-[#25D366] hover:brightness-95 transition"
+          className="inline-block px-6 py-3 rounded-full font-extrabold text-[var(--color-text)] bg-[#25D366] hover:brightness-95 transition"
         >
           👉 Consultar por WhatsApp
         </a>
       </div>
 
       {/* HERO */}
-      <section className="rounded-3xl p-8 md:p-12 border bg-white">
-        <p className="uppercase tracking-widest font-extrabold text-[#F7B5CD]">
+      <section className="rounded-3xl p-8 md:p-12 border bg-white border-[var(--color-accent)]">
+        <p className="uppercase tracking-widest font-extrabold text-[var(--pink)]">
           Evaluaciones
         </p>
-        <h1 className="mt-2 text-3xl md:text-5xl font-extrabold">
+        <h1 className="mt-2 text-3xl md:text-5xl font-extrabold text-[var(--color-primary)]">
           Tu diagnóstico inicial
         </h1>
-        <p className="mt-4 text-neutral-700 leading-relaxed max-w-3xl">
+        <p className="mt-4 text-gray-700 leading-relaxed max-w-3xl">
           Completá una evaluación para obtener un panorama claro de tu punto de partida.
           Primero te pedimos <strong>nombre, email y WhatsApp</strong> para enviarte los resultados.
         </p>
       </section>
 
       {/* GRID */}
-      <section className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <section className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {CARDS.map((c) => (
           <Link
             key={c.slug}

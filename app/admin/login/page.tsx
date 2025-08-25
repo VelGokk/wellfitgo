@@ -11,30 +11,29 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-
-    try {
-      const res = await fetch("/api/auth.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        localStorage.setItem("token", data.token); // guarda sesión en local
-        router.push("/admin"); // redirige al panel
+    // Validar contra credenciales guardadas si existen
+    const adminEmail = localStorage.getItem("wf-admin-email");
+    const adminPass = localStorage.getItem("wf-admin-pass");
+    if (adminEmail && adminPass) {
+      if (email === adminEmail && password === adminPass) {
+        localStorage.setItem("wf-admin-auth", "ok");
+        setTimeout(() => {
+          router.push("/admin/dashboard");
+        }, 300);
       } else {
-        setError(data.message || "Credenciales incorrectas");
+        setError("Email o contraseña incorrectos");
+        setLoading(false);
       }
-    } catch (err) {
-      setError("Error al conectar con el servidor");
-    } finally {
-      setLoading(false);
+    } else {
+      // Si no hay credenciales guardadas, permitir cualquier acceso
+      localStorage.setItem("wf-admin-auth", "ok");
+      setTimeout(() => {
+        router.push("/admin/dashboard");
+      }, 300);
     }
   };
 

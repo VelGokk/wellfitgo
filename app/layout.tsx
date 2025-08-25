@@ -33,7 +33,12 @@ export const metadata: Metadata = {
   }
 };
 
+import { usePathname } from "next/navigation";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Detectar si estamos en dashboard admin
+  const isDashboard = typeof window !== "undefined" && window.location.pathname.startsWith("/admin/dashboard");
+
   return (
     <html lang="es">
       <head>
@@ -46,12 +51,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{}}
       >
-        <Navbar />
-        {/* padding-top para no tapar el contenido con el navbar fijo */}
-        <div className="pt-16" style={{ backgroundColor: "var(--color-background)" }}>
+        {!isDashboard && <Navbar />}
+        <div className={isDashboard ? "" : "pt-16"} style={{ backgroundColor: "var(--color-background)" }}>
+          {isDashboard && (
+            <div className="flex gap-4 p-4 bg-[var(--gray-100)] border-b border-[var(--gray-300)]">
+              <a href="/" className="button">Vista previa</a>
+              <button className="button" onClick={() => window.history.back()}>Volver</button>
+            </div>
+          )}
           {children}
         </div>
-        <Footer />
+        {!isDashboard && <Footer />}
 
         {/* Scripts de analítica configurables desde content/site.json */}
         <Analytics />

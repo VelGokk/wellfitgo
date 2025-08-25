@@ -25,17 +25,17 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main role="main" aria-label="Contenido principal">
-        <section className="py-16 text-center bg-[var(--color-background)] animate-fade-in">
+        <section className="py-16 text-center bg-[var(--bg)] animate-fade-in">
           <div className="max-w-2xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-[var(--color-text)] drop-shadow-lg animate-slide-down">WellFitGo</h1>
-            <p className="text-lg md:text-xl text-neutral-700 mb-8 animate-fade-in-delay">Programas, retos y recursos para transformar tus hábitos. Esta landing es solo la parte visual: desde aquí te derivamos a nuestra tienda, a la biblioteca y a otras secciones clave. Sin precios, sin fricción.</p>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-[var(--color-primary)] drop-shadow-lg animate-slide-down">WellFitGo</h1>
+            <p className="text-lg md:text-xl text-gray-700 mb-8 animate-fade-in-delay">Programas, retos y recursos para transformar tus hábitos. Esta landing es solo la parte visual: desde aquí te derivamos a nuestra tienda, a la biblioteca y a otras secciones clave. Sin precios, sin fricción.</p>
             {/* Video de portada configurable desde el dashboard */}
             <div className="mb-8 animate-fade-in-delay">
               <HeroMedia media={{ kind: "youtube", url: heroVideoUrl, poster: "/videos/poster.jpg", alt: "Intro WellFitGo" }} />
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay">
-              <a href="/programas-info" className="rounded-full px-10 py-5 font-extrabold text-lg bg-[var(--color-secondary)] text-[var(--color-text)] shadow hover:brightness-95 transition">Programas</a>
-              <a href="/biblioteca" className="rounded-full px-10 py-5 font-extrabold text-lg bg-[var(--color-text)] text-white shadow hover:brightness-95 transition">Biblioteca</a>
+              <a href="/programas-info" className="rounded-full px-10 py-5 font-extrabold text-lg bg-[var(--color-accent)] text-[var(--color-text)] shadow hover:brightness-95 transition">Programas</a>
+              <a href="/biblioteca" className="rounded-full px-10 py-5 font-extrabold text-lg bg-[var(--color-primary)] text-white shadow hover:brightness-95 transition">Biblioteca</a>
               <a
                 href="https://wa.me/541130085655?text=Hola%20WellFitGo!%20Quiero%20saber%20m%C3%A1s%20sobre%20los%20programas.%20%F0%9F%98%8A"
                 target="_blank"

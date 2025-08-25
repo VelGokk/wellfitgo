@@ -12,26 +12,25 @@ export default function Hero() {
       : { kind: "image", src: "/assets/hero.jpg", alt: "Portada" };
 
   return (
-    <header>
+    <header className="bg-[var(--color-background)]">
       <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-24 grid md:grid-cols-[1.1fr_.9fr] gap-10 items-center">
         <div>
-          <p className="uppercase tracking-widest font-extrabold" style={{ color: "var(--wf-accent)" }}>
+          <p className="uppercase tracking-widest font-extrabold text-[var(--color-accent)]">
             {h.kicker}
           </p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold">{h.title}</h1>
-          <p className="mt-4 text-lg text-neutral-700 leading-relaxed">{h.description}</p>
+          <h1 className="mt-2 text-4xl md:text-6xl font-extrabold text-[var(--color-primary)] drop-shadow-sm">{h.title}</h1>
+          <p className="mt-4 text-lg text-[var(--gray-700)] leading-relaxed">{h.description}</p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
               href="/programas"
-              className="px-6 py-3 rounded-full font-extrabold text-center shadow hover:brightness-95"
-              style={{ backgroundColor: "var(--wf-accent)", color: "var(--wf-dark)" }}
+              className="button px-6 py-3 font-extrabold text-center shadow"
             >
               {h.ctaPrimaryText}
             </a>
             <a
               href="#biblioteca"
-              className="px-6 py-3 rounded-full font-extrabold text-center hover:opacity-90"
-              style={{ backgroundColor: "var(--wf-dark)", color: "#fff" }}
+              className="button px-6 py-3 font-extrabold text-center shadow"
+              style={{ background: "var(--pink-600)", color: "var(--black)" }}
             >
               {h.ctaSecondaryText}
             </a>
@@ -39,8 +38,8 @@ export default function Hero() {
               href={h.ctaTestUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full font-extrabold text-center hover:brightness-95"
-              style={{ backgroundColor: "var(--wf-cta)", color: "var(--wf-dark)" }}
+              className="button px-6 py-3 font-extrabold text-center shadow"
+              style={{ background: "var(--celeste)", color: "var(--white)" }}
             >
               {h.ctaTestText}
             </a>

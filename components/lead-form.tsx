@@ -84,10 +84,10 @@ export default function LeadForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
+  <form onSubmit={onSubmit} className="space-y-4 card p-6">
       {fields.map((f) => (
         <div key={f.name}>
-          <label className="block text-sm font-semibold mb-1">
+          <label className="block text-sm font-semibold mb-1 text-[var(--color-primary)]">
             {f.label}
             {f.required && " *"}
           </label>
@@ -97,10 +97,10 @@ export default function LeadForm({
               name={f.name}
               required={f.required}
               placeholder={f.placeholder}
-              className="w-full rounded-xl border p-3 min-h-[120px]"
+              className="w-full rounded-xl border border-[var(--gray-300)] p-3 min-h-[120px] focus:ring-2 focus:ring-[var(--color-secondary)]"
             />
           ) : f.type === "select" ? (
-            <select name={f.name} required={f.required} className="w-full rounded-xl border p-3">
+            <select name={f.name} required={f.required} className="w-full rounded-xl border border-[var(--gray-300)] p-3 focus:ring-2 focus:ring-[var(--color-secondary)]">
               <option value="">Seleccioná…</option>
               {f.options?.map((op) => (
                 <option key={op} value={op}>
@@ -124,7 +124,7 @@ export default function LeadForm({
               required={f.required}
               placeholder={f.placeholder}
               pattern={f.pattern}
-              className="w-full rounded-xl border p-3"
+              className="w-full rounded-xl border border-[var(--gray-300)] p-3 focus:ring-2 focus:ring-[var(--color-secondary)]"
             />
           )}
         </div>
@@ -134,8 +134,7 @@ export default function LeadForm({
 
       <button
         disabled={loading}
-        className="px-6 py-3 rounded-full font-extrabold text-white"
-        style={{ backgroundColor: "var(--wf-primary)" }}
+        className="button px-6 py-3 font-extrabold"
       >
         {loading ? "Enviando…" : "Enviar"}
       </button>

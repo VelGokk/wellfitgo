@@ -28,14 +28,14 @@ const items: Item[] = [
 
 export default function Downloads() {
   return (
-    <section id="biblioteca" className="py-16 bg-[#f7f7f9]">
+  <section id="biblioteca" className="py-16 bg-[var(--color-background)]">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="text-center mb-8">
-          <p className="uppercase tracking-widest font-extrabold text-[#F7B5CD]">
+          <p className="uppercase tracking-widest font-extrabold text-[var(--color-secondary)]">
             Recursos
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-1">Biblioteca (de recursos)</h2>
-          <p className="text-neutral-600 max-w-[760px] mx-auto mt-3">
+          <h2 className="text-3xl md:text-4xl font-extrabold mt-1 text-[var(--color-primary)]">Biblioteca (de recursos)</h2>
+          <p className="text-[var(--gray-700)] max-w-[760px] mx-auto mt-3">
             Guías, menús, planificadores y herramientas. Cada tarjeta te lleva
             al recurso correspondiente.
           </p>
@@ -45,7 +45,7 @@ export default function Downloads() {
           {items.map((it) => (
             <article
               key={it.title}
-              className="bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden"
+              className="card overflow-hidden hover:shadow-xl transition"
             >
               <div
                 className="aspect-[4/3] w-full"
@@ -56,13 +56,13 @@ export default function Downloads() {
                 }}
               />
               <div className="p-5">
-                <h6 className="text-lg font-extrabold">{it.title}</h6>
-                <p className="mt-2 text-neutral-600">{it.copy}</p>
+                <h6 className="text-lg font-extrabold text-[var(--color-primary)]">{it.title}</h6>
+                <p className="mt-2 text-[var(--gray-700)]">{it.copy}</p>
                 <a
                   href={it.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-block px-4 py-2.5 rounded-full bg-[#231F20] text-white font-bold hover:opacity-90"
+                  className="button mt-4 inline-block px-4 py-2.5 font-bold"
                 >
                   Ver recurso
                 </a>
