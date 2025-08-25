@@ -97,7 +97,50 @@ export default function PerfilNutricionalPage() {
         {error && <p className="text-red-500 text-center mb-4 animate-pulse">{error}</p>}
         {!enviado ? (
           <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow p-8 space-y-6 max-w-xl w-full">
-            {/* ...existing code... */}
+            <div>
+              <label className="block font-bold mb-1">Nombre completo *</label>
+              <input type="text" value={nombre} onChange={e => setNombre(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required />
+            </div>
+            <div>
+              <label className="block font-bold mb-1">Email *</label>
+              <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required />
+            </div>
+            <div>
+              <label className="block font-bold mb-1">WhatsApp *</label>
+              <input type="tel" inputMode="numeric" pattern="[0-9]{8,15}" value={whatsapp} onChange={e => setWhatsapp(e.target.value.replace(/[^\d]/g, ""))} className="w-full px-4 py-2 border rounded-lg" required placeholder="Ej: 1123456789" maxLength={15} />
+              <span className="text-xs text-neutral-500">Solo números, sin espacios ni símbolos.</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block font-bold mb-1">Peso (kg) *</label>
+                <input type="number" value={peso} onChange={e => setPeso(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required min={30} max={300} />
+              </div>
+              <div>
+                <label className="block font-bold mb-1">Altura (m) *</label>
+                <input type="number" step="0.01" value={altura} onChange={e => setAltura(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required min={1.2} max={2.5} />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block font-bold mb-1">Edad *</label>
+                <input type="number" value={edad} onChange={e => setEdad(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required min={10} max={120} />
+              </div>
+              <div>
+                <label className="block font-bold mb-1">Sexo *</label>
+                <select value={sexo} onChange={e => setSexo(e.target.value)} className="w-full px-4 py-2 border rounded-lg" required>
+                  <option value="">Selecciona</option>
+                  <option value="femenino">Femenino</option>
+                  <option value="masculino">Masculino</option>
+                </select>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <input type="checkbox" checked={acepta} onChange={e => setAcepta(e.target.checked)} required />
+              <span className="text-xs">Acepto los <a href="/legal/terminos" target="_blank" className="underline">Términos y Condiciones</a> y el siguiente descargo de responsabilidad:<br/><b>Este test es solo orientativo y no reemplaza el consejo profesional médico o nutricional. La información será utilizada para contactarte y enviarte recursos relacionados con tu bienestar.</b></span>
+            </div>
+            <button type="submit" className="bg-[#8e1dd1] hover:bg-[#6c14a0] text-white px-8 py-3 rounded-lg font-bold shadow-lg transition w-full disabled:opacity-60" disabled={loading}>
+              {loading ? "Calculando..." : "Ver resultado"}
+            </button>
           </form>
         ) : (
           resultado && (
